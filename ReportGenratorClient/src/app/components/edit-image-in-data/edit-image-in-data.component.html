@@ -1,0 +1,31 @@
+<title>Show Form on Button Click</title>
+<p-button (click)="showForm()" label="Select an image from a pool!" styleClass="p-button-rounded p-button-help"></p-button>
+ <!-- <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>  -->
+    <form id="myForm">
+<div class="card flex justify-content-center">
+    <p>choice a table</p>
+    <p-autoComplete  [(ngModel)]="selectTable" name="t" [dropdown]="true"  [suggestions]="filteredTables" (completeMethod)="filterTable($event)" field="Name"></p-autoComplete>
+</div> 
+<div class="card flex justify-content-center">
+    <p>choice a field</p>
+    <p-autoComplete  [(ngModel)]="selectField" name="f" [dropdown]="true"  [suggestions]="filteredField" (completeMethod)="filterField($event)" field="Name"></p-autoComplete>
+</div> 
+<br>
+<div id="square" [style.width]="width" [style.height]="height">
+    
+</div>
+<label for="height">Height:</label>
+<div class="card flex justify-content-center">
+    <input pInputText pKeyFilter="int" name="height" placeholder="Enter a height" [(ngModel)]="height"  />
+</div>
+
+<label for="width">Width:</label>
+<div class="card flex justify-content-center">
+    <input pInputText pKeyFilter="int" name="width" placeholder="Enter a width" [(ngModel)]="width" />
+</div>
+<div class="card flex justify-content-center">
+    <p-button (click)="showSquare()" label="Show Square"></p-button>
+</div>
+   
+       <input type="submit" value="Submit">
+    </form>  

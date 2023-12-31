@@ -1,0 +1,34 @@
+<p-dropdown [autoDisplayFirst]="false" optionLabel="name" [(ngModel)]="choosenData" [options]="data"
+    aria-placeholder="סוג הצגה" [showClear]="false" (onChange)="chooseData()"></p-dropdown>
+<label>בחר טבלה</label><br>
+
+<div *ngFor="let f of fields  let i = index">
+    <input type="text" pInputText [(ngModel)]="fields[i].header" placeholder=" כותרת לעמודה (לא חובה)"> <br><br>
+    <p-dropdown [autoDisplayFirst]="false" [options]="finallCols" optionLabel="field" [(ngModel)]="fields[i]"
+        aria-placeholder="סוג הצגה" [showClear]="false"></p-dropdown>
+    <label>בחר שדה</label><br><br>
+
+
+    <div *ngIf="fields[i].field">
+        <h4>בחר את העיצוב לעמודה {{fields[i].field}}</h4><br>
+        <p-checkbox [binary]="true" inputId="binary" [(ngModel)]="fields[i].style.hasunderline"></p-checkbox>
+        <label>קן תחתי</label><br>
+        <p-checkbox [binary]="true" inputId="binary" [(ngModel)]="fields[i].style.isemphassis"></p-checkbox>
+        <label>מודגש</label><br><br>
+        <p-dropdown [(ngModel)]="fields[i].style.fonttype" ngDefaultControl [options]="fonttypeOptions"
+            aria-placeholder="סוג כתב"></p-dropdown><br><br>
+        <p-colorPicker placeholder="color" ngDefaultControl [(ngModel)]="fields[i].style.color"></p-colorPicker> <br>
+    </div><br>
+</div>
+<div *ngIf="choosenData">
+    <p-button label="הוסף עמודה" (click)="addColumn()"></p-button><br><br>
+    <p-button *ngIf="!show" label="השדות שבחרתי " (click)="showMyFields()"></p-button><br><br>
+    <p-button *ngIf="show" label="הסתר" (click)="coverMyFields()"></p-button><br><br>
+</div>
+
+
+<div *ngIf="show">
+    <div *ngFor="let f of fields  let i = index">
+        <div>שדה: {{f.field}} כותרת: {{f.header}} color: {{f.style.color}} fonttype: {{f.style.fonttype}}</div>
+    </div>
+</div>

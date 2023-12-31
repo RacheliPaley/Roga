@@ -1,0 +1,94 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/paper-css/0.3.0/paper.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
+  integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg=="
+  crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<style>
+  @page {
+    size: A4
+  }
+</style>
+<div id="docsToPdf" #divToExport="">
+
+  <body class="A4">
+    <div class="container">
+
+      <div class="row">
+        <div class="p-2 border-1 surface-border border-round w-15rem  ">
+          <ul class="list-none flex flex-column gap-2 p-0 m-0">
+            <li *ngFor="let control of availableControls" class="p-2 border-round shadow-1" pDraggable
+              (onDragStart)="dragStart(control)" (onDragEnd)="dragEnd()"
+              [ngStyle]="{ 'height': control.Height, 'Width':  control.Width}">
+              {{control.ControlTypeName}}
+
+            </li>
+          </ul>
+        </div>
+
+        <div class="p-2 border-1 surface-border border-round w-15rem" pDroppable (onDrop)="drop()">
+          <section class="sheet padding-10mm" pDroppable (onDrop)="drop()">
+            <!-- <article>This is an A4 document.</article> -->
+            <article>{{ this.reportService.report.Name}}</article>
+            <ul class="list-none flex flex-column gap-2 p-0 m-0" *ngIf="selectedControls">
+              <li *ngFor="let control of selectedControls; let i=index" class="p-2 border-round shadow-1"
+                [ngStyle]="{ 'height': control.Height, 'Width':  control.Width}">
+
+                {{control.ControlTypeName}}
+                <i class="pi pi-file-edit" style="font-size: 1rem">עריכה</i>
+
+                <div [ngSwitch]="control.ControlTypeName">
+                  <label *ngSwitchCase="'טקסט'" [ngStyle]="{ 
+                    'color': control.Color ,
+                    'font-family': 'control.ControlTextId.FontTypeId.Name'
+                                      }">{{control.Text}}
+
+                  </label>
+
+                  <p-image *ngSwitchCase="'תמונה'" [ngStyle]="{ 
+                    'width':control.Width, 'height': 'control.Height'}"></p-image>
+
+                  <table *ngSwitchCase="'טבלה'">
+                    <thead>
+                      <tr>
+                        <th>עמודה1</th>
+                        <th>עמודה2</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>---------</td>
+                        <td>---------</td>
+                      </tr>
+                      <tr>
+                        <td>---------</td>
+                        <td>---------</td>
+                      </tr>
+                      <tr>
+                        <td>---------</td>
+                        <td>---------</td>
+                      </tr>
+                      <tr>
+                        <td>---------</td>
+                        <td>---------</td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+              </li>
+            </ul>
+          </section>
+
+        </div>
+      </div>
+      <button class="sheet padding-10mm " style="text-align: center;  width: 768px; margin-left: 75px; " pButton
+        label="הורדת הקבצים" class="p-button-outlined" (click)="exportPdf()"></button>
+
+    </div>
+
+  </body>
+</div>

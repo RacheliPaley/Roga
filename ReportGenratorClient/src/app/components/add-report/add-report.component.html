@@ -1,0 +1,16 @@
+<!-- <p-button label="הצגת הדוח" styleClass="p-button-secondary" (click)="addReport()"></p-button>
+<router-outlet></router-outlet> -->
+<div [formGroup]="form">
+    <div>
+      <!-- <input type="text" formControlName="userName"> -->
+      <div class="card flex justify-content-center">
+          <input pInputText pKeyFilter="text" formControlName="reportName" Name="reportName" placeholder="Enter the name of your report" [(ngModel)]="reportName"  />
+      </div>
+    </div>
+  </div>
+  <br>
+  
+  
+  <button type="button" (click)="form.reset()" >Rest</button>
+  <p-button label="הצגת הדוח" styleClass="p-button-secondary" (click)="addReport()"></p-button>
+  <router-outlet></router-outlet>

@@ -1,0 +1,9 @@
+C:\Users\This User\Documents\רחלי\Roga\Roga\bin\Debug\Roga.exe.config
+C:\Users\This User\Documents\רחלי\Roga\Roga\bin\Debug\Roga.exe
+C:\Users\This User\Documents\רחלי\Roga\Roga\bin\Debug\Roga.pdb
+C:\Users\This User\Documents\רחלי\Roga\Roga\obj\x86\Debug\Roga.csproj.AssemblyReference.cache
+C:\Users\This User\Documents\רחלי\Roga\Roga\obj\x86\Debug\Roga.csproj.SuggestedBindingRedirects.cache
+C:\Users\This User\Documents\רחלי\Roga\Roga\obj\x86\Debug\Roga.pdb
+C:\Users\This User\Documents\רחלי\Roga\Roga\obj\x86\Debug\AC2C1ABA-CCF6-44D4-8127-588FD4D0A860-DeferredValidationErrors.xml
+C:\Users\This User\Documents\רחלי\Roga\Roga\obj\x86\Debug\Roga.csproj.CoreCompileInputs.cache
+C:\Users\This User\Documents\רחלי\Roga\Roga\obj\x86\Debug\Roga.exe

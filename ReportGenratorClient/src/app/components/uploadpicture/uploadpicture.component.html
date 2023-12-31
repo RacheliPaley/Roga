@@ -1,0 +1,13 @@
+<input (change)="onFileSelected()" type="file" id="file">
+<p-image width="{{width}} " height="{{height}} " id="image" [src]="imageSrc" *ngIf="imageSrc"
+  [ngStyle]="{'display': 'block'}"></p-image>
+
+
+
+<div>
+  <label for="inputtextw">רוחב</label><br>
+  <p-inputNumber ngDefaultControl type="number" id="inputtextw" value="width"
+    [(ngModel)]="width"></p-inputNumber><br><br>
+  <label for="inputtextle">ארך</label><br>
+  <p-inputNumber type="number" value="height" [(ngModel)]="height"></p-inputNumber><br><br>
+</div>

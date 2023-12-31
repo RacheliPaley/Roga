@@ -1,0 +1,5 @@
+<container-element [ngSwitch]="chief">
+  <app-uploadpicture *ngSwitchCase="'picture'"></app-uploadpicture>
+  <app-table *ngSwitchCase="'table'"></app-table>
+  <app-textbox *ngSwitchCase="'textbox'"></app-textbox>
+</container-element>
